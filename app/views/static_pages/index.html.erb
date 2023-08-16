@@ -1,5 +1,9 @@
-<h1>Hello, World</h1>
-
-<!-- A tag abaixo (<%= %>), é a forma para que o código ruby seja executado no tamplate
-Com isso, podemos pegar códigos ruby do controller e injetar no front-end (html.erb) -->
-<%=@nome %> <!-- Essa variavel @nome será um print, com o sinal de igual(=@nome ) tornará a variavel disponível na visualização -->
+<div class="jumbotron">
+    <h1>Contact List</h1>
+    <p>
+        Gerencie seus contatos em qualquer lugar!
+    </p>
+    <p>
+        <%= link_to 'Crie Sua Conta', '#', class: 'btn btn-primary btn-lg' %>
+    </p>
+</div>

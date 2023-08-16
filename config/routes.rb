@@ -6,4 +6,8 @@ Rails.application.routes.draw do
 
   # Página principal da aplicação - root to: "nome_do_controller(o controller que foi criado)#index(nome da action(página inicial))"
   root to: "static_pages#index"
+
+  # Rotas para as páginas estáticas
+  get 'sobre', to: 'static_pages#sobre'
+  get 'contato', to: 'static_pages#contato'
 end
