@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   # Rotas para as páginas estáticas
   get 'sobre', to: 'static_pages#sobre'
   get 'contato', to: 'static_pages#contato'
+
+  # Rota Scaffold
+  resources :contacts
+  
+  # Rota cadastro Usuário
+  resources :users, only: [:new, :create]
 end
