@@ -1,9 +1,11 @@
 class ContactsController < ApplicationController
+  
+  before_action :require_logged_in_user
   before_action :set_contact, only: %i[ show edit update destroy ]
 
   # GET /contacts or /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = current_user.contacts # current_user.contacts irá permite que seja acessado os contatos apenas do usuário logado
   end
 
   # GET /contacts/1 or /contacts/1.json
@@ -21,11 +23,11 @@ class ContactsController < ApplicationController
 
   # POST /contacts or /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    @contact = current_user.contacts.build(contact_params) # build é uma função padrão do rails para permitir a criação e atualização dos contatos
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to contact_url(@contact), notice: "Contact was successfully created." }
+        format.html { redirect_to contact_url(@contact), notice: "Contato criado com sucesso!" }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class ContactsController < ApplicationController
   def update
     respond_to do |format|
       if @contact.update(contact_params)
-        format.html { redirect_to contact_url(@contact), notice: "Contact was successfully updated." }
+        format.html { redirect_to contact_url(@contact), notice: "Contato atualizado com sucesso!" }
         format.json { render :show, status: :ok, location: @contact }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class ContactsController < ApplicationController
     @contact.destroy
 
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: "Contact was successfully destroyed." }
+      format.html { redirect_to contacts_url, notice: "Contato excluído com sucesso!" }
       format.json { head :no_content }
     end
   end
@@ -60,7 +62,7 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = current_user.contacts.find(params[:id]) # Substituímos a contacts.find(params[:id]) por current_user.contacts.find(params[:user]) para setarmos apenas os contatos do usuário logado 
     end
 
     # Only allow a list of trusted parameters through.

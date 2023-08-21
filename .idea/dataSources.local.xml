@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="RM-232.8660.186">
+    <data-source name="contact_list: production" uuid="500f6a74-00e2-424d-be5b-0622161914ea">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>contact_list</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="contact_list: test" uuid="3c3e658b-9207-4e41-bf7e-0bf5ef763dc6">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="contact_list: development" uuid="b6d2198d-7e3e-4297-99b5-2c58854666dc">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
