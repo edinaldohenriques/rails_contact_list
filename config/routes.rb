@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   
   # Rota cadastro Usuário
   resources :users, only: [:new, :create, :show, :edit, :update]
+  # resources :users, except: [:index, :destroy]
 end
